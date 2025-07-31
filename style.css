@@ -1,20 +1,16 @@
-* {
-  box-sizing: border-box;
-}
-
 body, html {
   height: 100%;
   margin: 0;
 }
 
 body {
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  background-color: #fff0f5;
-  font-family: 'Baloo 2', cursive;
-  text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    background-color: #fff0f5;
+    font-family: 'Baloo 2', cursive;
+    text-align: center;
 }
 
 #container {
@@ -26,37 +22,37 @@ body {
 }
 
 #inicio {
-  margin-top: 20px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 12px; 
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px; 
 }
 
 #fichas-jugadores {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 10px;
-  padding: 0;
-  width: 100%;
-  height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    padding: 0;
+    width: 100%;
+    height: 100%;
 }
 
 #fichas-jugadores.dos-columnas {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  align-items: start;
-  justify-items: end;
-  gap: 10px 16px;
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    align-items: start;
+    justify-items: end;
+    gap: 10px 16px;
 }
 
 #game {
-  display: none;
-  flex-direction: row;
-  align-items: flex-start;
-  gap: 60px;
-  margin-top: 20px;
+    display: none;
+    flex-direction: row;
+    align-items: flex-start;
+    gap: 60px;
+    margin-top: 20px;
 }
 
 #dice {
@@ -101,10 +97,10 @@ body {
 .face6 { transform: rotateX(-90deg) translateZ(45px);}
 
 #board {
-  display: grid;
-  grid-template-columns: repeat(8, 95px);
-  grid-template-rows: repeat(6, 65px);
-  gap: 8px;
+    display: grid;
+    grid-template-columns: repeat(8, 95px);
+    grid-template-rows: repeat(6, 65px);
+    gap: 8px;
 }
 
 .casilla {
@@ -153,27 +149,27 @@ button:hover {
 }
 
 #dice-container {
-  display: none;
-  flex-direction: column;
-  align-items: center;
+    display: none;
+    flex-direction: column;
+    align-items: center;
 }
 
 #message {
-  position: fixed;
-  top: 20px;
-  left: 50%;
-  transform: translateX(-50%);
-  background-color: #ffffffd3;
-  color: #fa88fa;
-  padding: 12px 24px;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-  font-weight: bold;
-  font-size: 1.2em;
-  z-index: 1000;
-  display: none;
-  opacity: 0;
-  transition: opacity 0.3s ease;
+    position: fixed;
+    top: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: #ffffffd3;
+    color: #fa88fa;
+    padding: 12px 24px;
+    border-radius: 8px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    font-weight: bold;
+    font-size: 1.2em;
+    z-index: 1000;
+    display: none;
+    opacity: 0;
+    transition: opacity 0.3s ease;
 }
 
 .ficha {
@@ -181,33 +177,33 @@ button:hover {
 }
 
 #salida {
-  width: 120px;
-  height: 385px;
-  box-sizing: border-box;
-  border: 4px solid #ff00ffa6;
-  border-radius: 16px;
-  display: flex;
-  align-items: flex-start;
-  justify-content: center;
-  background: #f35ae63b;
-  margin-right: 0px;
-  position: relative;
-  padding-top: 10px;
+    width: 120px; /* Solo lo necesario para las fichas */
+    height: 385px;  /* igual que el tablero */
+    box-sizing: border-box;
+    border: 4px solid #ff00ffa6;
+    border-radius: 16px;
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+    background: #f35ae63b;
+    margin-right: 0px;
+    position: relative;
+    padding-top: 10px;
 }
 
 .winner {
-  width: 197px;
-  height: 65px;
-  background: #ffeb3b;
-  color: #c40bc4;
-  font-size: 1.5em;
-  font-weight: bold;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  border: 2px solid #c40bc4;
-  border-radius: 5px;
-  text-shadow: 1px 1px 2px #fff;
+    width: 197px;
+    height: 65px;
+    background: #ffeb3b;
+    color: #c40bc4;
+    font-size: 1.5em;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 2px solid #c40bc4;
+    border-radius: 5px;
+    text-shadow: 1px 1px 2px #fff;
 }
 
 .modal {
@@ -219,7 +215,6 @@ button:hover {
   justify-content: center;
   z-index: 2000;
 }
-
 .modal-content {
   background: #fff;
   border-radius: 16px;
@@ -231,7 +226,7 @@ button:hover {
   box-shadow: 0 4px 24px #0003;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: center;      /* Centra verticalmente el contenido */
   align-items: center;
   position: relative;
 }
@@ -253,7 +248,6 @@ button:hover {
   gap: 110px;
   width: 100%;
 }
-
 .btn-circular {
   width: 56px;
   height: 56px;
@@ -265,15 +259,12 @@ button:hover {
   cursor: pointer;
   transition: background 0.2s;
 }
-
 .btn-circular:hover {
   background: #c40bc4;
 }
-
 .btn-verde {
   background: #4caf50;
 }
-
 .btn-verde:hover {
   background: #388e3c;
 }
@@ -281,12 +272,11 @@ button:hover {
 .btn-rojo {
   background: #e53935;
 }
-
 .btn-rojo:hover {
   background: #ab000d;
 }
+/* ==== ESCALADO RESPONSIVE === */
 
-/* --- Escalado automático para pantallas pequeñas --- */
 #game-wrapper {
   width: 100%;
   height: 100%;
@@ -300,20 +290,32 @@ button:hover {
   transform-origin: top left;
 }
 
+/* Ajusta el tamaño máximo a 100% viewport */
+body {
+  overflow-x: hidden;
+}
+
+/* Escalado automático con media query */
+@media (max-width: 1200px) {
+  #game {
+    transform: scale(0.9);
+  }
+}
+
+@media (max-width: 1000px) {
+  #game {
+    transform: scale(0.75);
+  }
+}
+
 @media (max-width: 800px) {
   #game {
-    transform: scale(0.7);
+    transform: scale(0.6);
   }
 }
 
 @media (max-width: 600px) {
   #game {
-    transform: scale(0.55);
-  }
-}
-
-@media (max-width: 400px) {
-  #game {
-    transform: scale(0.4);
+    transform: scale(0.5);
   }
 }
