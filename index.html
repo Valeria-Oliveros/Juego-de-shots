@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Juego de Shots</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="container">
+        <h1>🍺 LA OCA BORRACHA 🍺</h1>
+
+        <div id="inicio">
+            <label for="numPlayers">Seleccione la cantidad de jugadores: </label>
+            <select id="numPlayers">
+                <option value="3">3</option>
+                <option value="4">4</option>
+                <option value="5">5</option>
+                <option value="6">6</option>
+                <option value="7">7</option>
+                <option value="8">8</option>
+                <option value="9">9</option>
+                <option value="10">10</option>
+                <option value="11">11</option>
+                <option value="12">12</option>
+                <option value="13">13</option>
+                <option value="14">14</option>
+                <option value="15">15</option>
+            </select>
+            <button id="startBtn">Iniciar Juego</button>
+        </div>
+        <div id="game">
+            <div id="salida">
+                <div id="fichas-jugadores"></div>
+            </div>
+            <div id="players"></div>
+            <div id="board"></div>
+            <div id="dice-container">
+                <button id="rollDiceBtn">Lanzar Dado</button>
+                <div id="dice">
+                  <div class="cube" id="cube">
+                    <div class="face face1">1</div>
+                    <div class="face face2">2</div>
+                    <div class="face face3">3</div>
+                    <div class="face face4">4</div>
+                    <div class="face face5">5</div>
+                    <div class="face face6">6</div>
+                  </div>
+                </div>
+            </div>
+        </div>
+
+        <div id="message"></div>
+    </div>
+    <div id="accion-modal" class="modal" style="display:none;">
+  <div class="modal-content">
+    <span id="accion-texto"></span>
+    <div class="modal-botones"> 
+      <button id="btn-reto" class="btn-circular btn-verde" title="Reto completado">😈</button>
+      <button id="btn-shot" class="btn-circular btn-rojo" title="Tomé el shot">😵‍💫</button>
+    </div>
+  </div>
+</div>
+    <script src="script.js"></script>
+    <script>
+      function actualizarFichasTablero() {
+  // Limpia fichas previas
+  document.querySelectorAll('.ficha-en-tablero').forEach(f => f.remove());
+  document.querySelectorAll('.ficha-en-salida').forEach(f => f.remove());
+
+  // Muestra el número en todas las casillas antes de agregar fichas
+  document.querySelectorAll('.casilla').forEach(casilla => {
+    let numeroSpan = casilla.querySelector('.numero-casilla');
+    if (numeroSpan) numeroSpan.style.display = "";
+  });
+
+  // Contar cuántas fichas siguen en la salida
+  const fichasEnSalida = jugadores.filter(j => j.posicion === 0).length;
+
+  let visibles = 0;
+  jugadores.forEach((jugador, idx) => {
+    let casillaNum = jugador.posicion;
+    let ficha = document.createElement("span");
+    ficha.className = "ficha";
+    ficha.style.background = jugador.color;
+    ficha.style.width = "38px";
+    ficha.style.height = "38px";
+    ficha.style.borderRadius = "50%";
+    ficha.style.margin = "0 2px";
+    ficha.style.border = "2px solid #fff";
+    ficha.style.boxShadow = "0 0 2px #000";
+    ficha.style.display = "inline-block";
+    ficha.style.verticalAlign = "middle";
+    ficha.title = `Jugador ${idx + 1}`;
+    ficha.textContent = idx + 1;
+    ficha.style.color = "#fff";
+    ficha.style.fontWeight = "bold";
+    ficha.style.fontSize = "22px";
+    ficha.style.textAlign = "center";
+    ficha.style.lineHeight = "38px";
+
+    if (casillaNum === 0) {
+      ficha.classList.add("ficha-en-salida");
+      // Solo muestra las primeras 7 fichas en la salida
+      if (visibles < 7) {
+        ficha.style.display = "inline-block";
+        visibles++;
+      } else {
+        ficha.style.display = "none";
+      }
+      document.getElementById("fichas-jugadores").appendChild(ficha);
+    } else {
+      ficha.classList.add("ficha-en-tablero");
+      let casilla;
+      if (casillaNum > 46) casillaNum = 47; // Winner
+      if (casillaNum === 47) {
+        casilla = document.querySelector('.winner');
+      } else {
+        casilla = document.querySelectorAll('.casilla')[casillaNum - 1];
+      }
+      if (casilla) {
+        let numeroSpan = casilla.querySelector('.numero-casilla');
+        if (numeroSpan) numeroSpan.style.display = "none";
+        casilla.appendChild(ficha);
+      }
+    }
+  });
+}
+    </script>
+</body>
+</html>
