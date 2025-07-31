@@ -275,3 +275,71 @@ button:hover {
 .btn-rojo:hover {
   background: #ab000d;
 }
+
+/* Mejoras responsive para móvil */
+@media (max-width: 700px) {
+  #container {
+    width: 100vw;
+    min-height: 100vh;
+    padding: 0;
+  }
+  #game {
+    flex-direction: column;
+    align-items: center;
+    gap: 20px;
+    width: 100vw;
+    margin-top: 10px;
+  }
+  #salida {
+    width: 90vw;
+    min-width: 0;
+    height: auto;
+    margin-right: 0;
+    margin-bottom: 10px;
+    padding-top: 10px;
+  }
+  #board {
+    grid-template-columns: repeat(4, 1fr);
+    grid-template-rows: repeat(12, 40px);
+    gap: 4px;
+    width: 95vw;
+    min-width: 0;
+  }
+  .casilla, .winner {
+    width: 100%;
+    min-width: 0;
+    height: 40px;
+    font-size: 1em;
+    padding: 0;
+  }
+  #dice {
+    width: 70px;
+    height: 70px;
+    margin: 10px;
+  }
+  .cube, .face {
+    width: 60px;
+    height: 60px;
+    font-size: 2em;
+  }
+  .modal-content {
+    width: 90vw;
+    min-width: 0;
+    height: auto;
+    padding: 16px 4vw;
+  }
+  #accion-texto {
+    font-size: 1em;
+  }
+  .btn-circular {
+    width: 44px;
+    height: 44px;
+    font-size: 1.3em;
+  }
+  .modal-botones {
+    gap: 30px;
+  }
+  h1 {
+    font-size: 2em;
+  }
+}
